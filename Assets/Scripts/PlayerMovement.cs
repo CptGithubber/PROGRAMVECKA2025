@@ -76,14 +76,16 @@ public class PlayerMovement : MonoBehaviour
             if (isGrounded == true)
             {
                 coyotyTimeCounter = coyotyTime;
+                anim.SetBool("isJumping", false);
             }
             else
             {
                 coyotyTimeCounter -= Time.deltaTime;
-
-
+                anim.SetBool("isJumping", true);
             }
+
             Debug.Log(coyotyTimeCounter);
+
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 jumpBufferTimeCounter = jumpBufferTime;
@@ -93,12 +95,16 @@ public class PlayerMovement : MonoBehaviour
                 jumpBufferTimeCounter -= Time.deltaTime;
             }
 
-
             //Check if grounded and allows jumping
             if (coyotyTimeCounter > 0f && jumpBufferTimeCounter > 0f)
             {
                 rb.velocity = new Vector2(rb.velocity.x, jump);
+                anim.SetBool("isJumping", true);
+                Debug.Log(rb.velocity.y);
             }
+
+            anim.SetFloat("yVelocity", rb.velocity.y);
+            anim.SetFloat("xVelocity", Mathf.Abs(rb.velocity.x));
 
             moveVelocity = 0;
 
