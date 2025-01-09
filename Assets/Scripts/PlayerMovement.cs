@@ -18,12 +18,21 @@ public class PlayerMovement : MonoBehaviour
     public float rollspeed;
     float moveVelocity;
     float speedMultiplier = 1;
+
     Rigidbody2D rb;
+
     bool isGrounded;
     bool rolling;
     bool canControl = true;
     public static bool interacting = false;
-    
+
+    float coyotyTimeCounter;
+    public float coyotyTime = 0.2f;
+
+    public float jumpBufferTime = 0.2f;
+    float jumpBufferTimeCounter;
+
+
 
     private Animator anim;
 
@@ -48,7 +57,15 @@ public class PlayerMovement : MonoBehaviour
         
     }
 
-    
+    public void OnCollisionEnter2D(Collision2D col)
+    {
+        isGrounded = true;
+    }
+    public void OnCollisionExit2D(Collision2D col)
+    {
+        isGrounded = false;
+    }
+
 
     void Update()
     {
@@ -56,17 +73,31 @@ public class PlayerMovement : MonoBehaviour
         if (canControl == true)
         {
 
-        
-            //Check if grounded
             if (isGrounded == true)
             {
-                //jumping
-                if (Input.GetKeyDown(KeyCode.Space))
-                {
+                coyotyTimeCounter = coyotyTime;
+            }
+            else
+            {
+                coyotyTimeCounter -= Time.deltaTime;
 
-                    rb.velocity = new Vector2(rb.velocity.x, jump);
-                }
 
+            }
+            Debug.Log(coyotyTimeCounter);
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                jumpBufferTimeCounter = jumpBufferTime;
+            }
+            else
+            {
+                jumpBufferTimeCounter -= Time.deltaTime;
+            }
+
+
+            //Check if grounded and allows jumping
+            if (coyotyTimeCounter > 0f && jumpBufferTimeCounter > 0f)
+            {
+                rb.velocity = new Vector2(rb.velocity.x, jump);
             }
 
             moveVelocity = 0;
