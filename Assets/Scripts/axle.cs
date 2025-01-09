@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class axle : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public void change()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Screen.fullScreen = !Screen.fullScreen;
+        print("Fullscreen ändrade");
     }
 }
+
