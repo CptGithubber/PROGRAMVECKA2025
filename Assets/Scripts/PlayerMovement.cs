@@ -17,7 +17,9 @@ public class PlayerMovement : MonoBehaviour
     public float speed;
     public float rollspeed;
     float moveVelocity;
+    float yVelocity;
     float speedMultiplier = 1;
+    public float fallSpeed;
 
     Rigidbody2D rb;
 
@@ -72,7 +74,6 @@ public class PlayerMovement : MonoBehaviour
 
         if (canControl == true)
         {
-
             if (isGrounded == true)
             {
                 coyotyTimeCounter = coyotyTime;
@@ -105,6 +106,15 @@ public class PlayerMovement : MonoBehaviour
 
             anim.SetFloat("yVelocity", rb.velocity.y);
             anim.SetFloat("xVelocity", Mathf.Abs(rb.velocity.x));
+
+            if (rb.velocity.y < 0)
+            {
+                yVelocity = rb.velocity.y * fallSpeed;
+            }
+            else
+            {
+                yVelocity = rb.velocity.y;
+            }
 
             moveVelocity = 0;
 
@@ -156,7 +166,7 @@ public class PlayerMovement : MonoBehaviour
                 transform.eulerAngles = new Vector3(0, 0, 0);
             }
 
-            GetComponent<Rigidbody2D>().velocity = new Vector2(moveVelocity, GetComponent<Rigidbody2D>().velocity.y);
+            rb.velocity = new Vector2(moveVelocity, yVelocity);
 
         }
 
