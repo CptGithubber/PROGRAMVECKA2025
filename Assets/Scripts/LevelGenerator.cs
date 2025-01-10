@@ -40,6 +40,7 @@ public class LevelGenerator : MonoBehaviour, ILevelGenerator
     public void Start()
     {
         GenerateLevel();
+        AstarPath.active.Scan();
     }
 
 
