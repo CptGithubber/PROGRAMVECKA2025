@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public interface IInteractable
@@ -16,12 +17,15 @@ public class PlayerMovement : MonoBehaviour
     public float jump;
     public float speed;
     public float rollspeed;
+    bool isRunning_D;
+    bool isRunning_A;
     float moveVelocity;
     float yVelocity;
     float speedMultiplier = 1;
     public float fallSpeed;
 
     Rigidbody2D rb;
+    BoxCollider2D box;
 
     bool isGrounded;
     bool rolling;
@@ -44,9 +48,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        StartCoroutine(roller());
-
-        
+        StartCoroutine(roller());        
     }
 
     IEnumerator roller()
@@ -59,14 +61,9 @@ public class PlayerMovement : MonoBehaviour
         
     }
 
-    public void OnCollisionEnter2D(Collision2D col)
-    {
-        isGrounded = true;
-    }
-    public void OnCollisionExit2D(Collision2D col)
-    {
-        isGrounded = false;
-    }
+
+
+
 
 
     void Update()
@@ -96,16 +93,67 @@ public class PlayerMovement : MonoBehaviour
                 jumpBufferTimeCounter -= Time.deltaTime;
             }
 
-            //Check if grounded and allows jumping
-            if (coyotyTimeCounter > 0f && jumpBufferTimeCounter > 0f)
+            //Left/Right Movement
+            if (Input.GetKey(KeyCode.A))
             {
-                rb.velocity = new Vector2(rb.velocity.x, jump);
-                anim.SetBool("isJumping", true);
-                Debug.Log(rb.velocity.y);
+                isRunning_A = true;
+            }
+            else
+            {
+                isRunning_A = false;
+            }
+            if (Input.GetKey(KeyCode.D))
+            {
+                isRunning_D = true;
+            }
+            else
+            {
+                isRunning_D = false;
             }
 
-            anim.SetFloat("yVelocity", rb.velocity.y);
-            anim.SetFloat("xVelocity", Mathf.Abs(rb.velocity.x));
+
+            //Rolling
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                    canControl = false;
+                    StartCoroutine(roller());
+                    anim.SetBool("isRolling", true);
+            }
+
+            //Attack
+            if (Input.GetKey(KeyCode.F))
+            {
+               
+            }
+        }
+    }
+
+
+    //Checks if the player is tuching the ground and changs isGrounded based on it
+    public void OnCollisionEnter2D(Collision2D col)
+    {
+        isGrounded = true;
+    }
+    public void OnCollisionExit2D(Collision2D col)
+    {
+        isGrounded = false;
+    }
+
+    void FixedUpdate()
+    {
+
+        //Check if grounded and allows jumping
+        if (coyotyTimeCounter > 0f && jumpBufferTimeCounter > 0f)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, jump);
+            anim.SetBool("isJumping", true);
+            Debug.Log(rb.velocity.y);
+        }
+
+        anim.SetFloat("yVelocity", rb.velocity.y);
+        anim.SetFloat("xVelocity", Mathf.Abs(rb.velocity.x));
+
+        
 
             if (rb.velocity.y < 0)
             {
@@ -116,69 +164,42 @@ public class PlayerMovement : MonoBehaviour
                 yVelocity = rb.velocity.y;
             }
 
-            moveVelocity = 0;
-
-            //Left/Right Movement
-            if (Input.GetKey(KeyCode.A))
-            {
-                speedMultiplier = -1;
-                moveVelocity = speed * speedMultiplier;
-                anim.SetBool("isRunning", true);
-            }
-            if (Input.GetKey(KeyCode.D))
-            {
-                speedMultiplier = 1;
-                moveVelocity = speed * speedMultiplier;
-                anim.SetBool("isRunning", true);
-            }
-
-            //Rolling
-            if (Input.GetKey(KeyCode.LeftShift))
-            {
-                    canControl = false;
-                    StartCoroutine(roller());
-                    anim.SetBool("isRolling", true);
-
-            }
-
-            //Attack
-            if (Input.GetKey(KeyCode.F))
-            {
-               
-
-            }
 
 
-            //Animation Handling + Flipping
+        moveVelocity = 0;
 
-            if (moveVelocity == 0)
-            {
-                anim.SetBool("isRunning", false);
-            }
-
-            if (speedMultiplier < 0)
-            {
-                transform.eulerAngles = new Vector3(0, 180, 0);
-            }
-
-            if (speedMultiplier > 0)
-            {
-                transform.eulerAngles = new Vector3(0, 0, 0);
-            }
-
-            rb.velocity = new Vector2(moveVelocity, yVelocity);
-
-        }
-
-        //Check if grounded
-        void OnCollisionEnter2D(Collision2D col)
+        //Left/Right Movement
+        if (isRunning_A == true)
         {
-            isGrounded = true;
+            speedMultiplier = -1;
+            moveVelocity = speed * speedMultiplier;
+            anim.SetBool("isRunning", true);
         }
-        void OnCollisionExit2D(Collision2D col)
+        if (isRunning_D == true)
         {
-            isGrounded = false;
+            speedMultiplier = 1;
+            moveVelocity = speed * speedMultiplier;
+            anim.SetBool("isRunning", true);
         }
+
+        //Animation Handling + Flipping
+
+        if (moveVelocity == 0)
+        {
+            anim.SetBool("isRunning", false);
+        }
+
+        if (speedMultiplier < 0)
+        {
+            transform.eulerAngles = new Vector3(0, 180, 0);
+        }
+
+        if (speedMultiplier > 0)
+        {
+            transform.eulerAngles = new Vector3(0, 0, 0);
+        }
+
+        rb.velocity = new Vector2(moveVelocity, yVelocity);
     }
 }
 

@@ -130,6 +130,7 @@ MonoBehaviour:
   jump: 12
   speed: 7
   rollspeed: 18
+  fallSpeed: 0
   coyotyTime: 0.2
   jumpBufferTime: 0.2
 --- !u!95 &2211606759941671605

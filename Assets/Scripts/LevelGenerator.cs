@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class LevelGenerator : MonoBehaviour, ILevelGenerator
+public class LevelGenerator : MonoBehaviour
 {
     public Texture2D map;
 
@@ -21,7 +21,7 @@ public class LevelGenerator : MonoBehaviour, ILevelGenerator
         {
             if (colorMapping.color.Equals(pixelColor))
             {
-                Vector2 position = new Vector2(x, y);
+                Vector2 position = new Vector2(Mathf.RoundToInt(x), Mathf.RoundToInt(y));
                 Instantiate(colorMapping.prefab, position, Quaternion.identity, transform);
             }
         }
@@ -43,15 +43,5 @@ public class LevelGenerator : MonoBehaviour, ILevelGenerator
         AstarPath.active.Scan();
     }
 
-
-}
-
-interface ILevelGenerator
-{
-    void GenerateTile(int x, int y);
-
-    void GenerateLevel();
-
-    void Start();
 
 }
