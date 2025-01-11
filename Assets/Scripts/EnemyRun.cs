@@ -31,7 +31,18 @@ public class EnemyRun : StateMachineBehaviour
 
         if (Vector2.Distance(player.position, rb.position) <= attackRange)
         {
-            animator.SetTrigger("Attack");
+            int chooseattack = Random.Range(2, 0);
+            
+            if (chooseattack == 1)
+            {
+                animator.SetTrigger("Attack");
+            }
+
+            if (chooseattack == 2)
+            {
+                animator.SetTrigger("TripleAttack");
+            }
+
         }
     }
 
@@ -39,5 +50,6 @@ public class EnemyRun : StateMachineBehaviour
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         animator.ResetTrigger("Attack");
+        animator.ResetTrigger("TripleAttack");
     }
 }
