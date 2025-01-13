@@ -132,7 +132,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 55925174}
-  - component: {fileID: 55925173}
   - component: {fileID: 55925172}
   m_Layer: 0
   m_Name: GameObject
@@ -153,34 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ee83db6df218364eac8c5fc320a99b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 222515617}
---- !u!50 &55925173
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 55925171}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  target: {fileID: 222515623}
 --- !u!4 &55925174
 Transform:
   m_ObjectHideFlags: 0
@@ -200,6 +172,11 @@ Transform:
 --- !u!1 &222515617 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7323729258134347923, guid: 018a1a6e8c0797f4192eeab3fa61dfe4, type: 3}
+  m_PrefabInstance: {fileID: 1928963912}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &222515623 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3294068893454938766, guid: 018a1a6e8c0797f4192eeab3fa61dfe4, type: 3}
   m_PrefabInstance: {fileID: 1928963912}
   m_PrefabAsset: {fileID: 0}
 --- !u!61 &222515624
@@ -234,18 +211,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.03053099, y: -0.17436919}
+  m_Offset: {x: -0.19225085, y: -0.067858934}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.6666667, y: 1.3333334}
-    newSize: {x: 1, y: 1}
+    oldSize: {x: 1, y: 1.25}
+    newSize: {x: 1, y: 1.25}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.356938, y: 0.98873836}
+  m_Size: {x: 0.51708674, y: 1.1294527}
   m_EdgeRadius: 0
 --- !u!1 &418380820
 GameObject:
@@ -281,7 +258,7 @@ MonoBehaviour:
   map: {fileID: 2800000, guid: 99e1be94076469d46bc857784733c50e, type: 3}
   colorMappings:
   - color: {r: 0, g: 0, b: 0, a: 1}
-    prefab: {fileID: 1354247397199825707, guid: 6ae4a877fc012c84186288a36b0cd410, type: 3}
+    prefab: {fileID: 3568308895768260000, guid: ee076c3eb1c1c074188e2d19ab0bc546, type: 3}
 --- !u!4 &418380822
 Transform:
   m_ObjectHideFlags: 0
@@ -682,6 +659,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5310399606927809235, guid: 018a1a6e8c0797f4192eeab3fa61dfe4, type: 3}
+      propertyPath: m_Size.y
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5310399606927809235, guid: 018a1a6e8c0797f4192eeab3fa61dfe4, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1593748787, guid: d34b9b4e712761946a33ea470dcbf2c5, type: 3}
+    - target: {fileID: 5310399606927809235, guid: 018a1a6e8c0797f4192eeab3fa61dfe4, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5310399606927809235, guid: 018a1a6e8c0797f4192eeab3fa61dfe4, type: 3}
+      propertyPath: m_DrawMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5310399606927809235, guid: 018a1a6e8c0797f4192eeab3fa61dfe4, type: 3}
+      propertyPath: m_SpriteSortPoint
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5670724935657490030, guid: 018a1a6e8c0797f4192eeab3fa61dfe4, type: 3}
       propertyPath: m_Size.x
       value: 0.4389634
@@ -718,7 +715,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7323729258134347923, guid: 018a1a6e8c0797f4192eeab3fa61dfe4, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 5670724935657490030, guid: 018a1a6e8c0797f4192eeab3fa61dfe4, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
