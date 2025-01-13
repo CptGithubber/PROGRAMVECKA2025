@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 7411039715033099741}
   - component: {fileID: 187883944543238021}
   - component: {fileID: 1252157845215771609}
+  - component: {fileID: 7513221290460231238}
+  - component: {fileID: 3273937938465352405}
   m_Layer: 0
   m_Name: Flying Enemy
   m_TagString: Untagged
@@ -171,3 +173,44 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7513221290460231238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 110150106846459185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1def71a4c69c2342ad53dd86b176d11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 7323729258134347923, guid: 018a1a6e8c0797f4192eeab3fa61dfe4, type: 3}
+  projectile: {fileID: 5317957236174048344, guid: d5c10384d67908e48988470a53d02624, type: 3}
+--- !u!50 &3273937938465352405
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 110150106846459185}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
