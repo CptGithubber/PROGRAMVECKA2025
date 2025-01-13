@@ -1,13 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class axle : MonoBehaviour
 {
-    public void change()
+  
+    public void change(bool fullScreen)
     {
-        Screen.fullScreen = !Screen.fullScreen;
+        Screen.fullScreen = fullScreen;
         print("Fullscreen ändrade");
     }
+   
 }
 
