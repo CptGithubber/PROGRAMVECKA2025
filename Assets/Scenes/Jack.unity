@@ -146,7 +146,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  deathEffect: {fileID: 0}
+--- !u!114 &59167866 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6316252139009689216, guid: 018a1a6e8c0797f4192eeab3fa61dfe4, type: 3}
+  m_PrefabInstance: {fileID: 999447521}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 59167856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ecd24fe9e7753342a2ec528a44dcdd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &305422065
 GameObject:
   m_ObjectHideFlags: 0
@@ -644,7 +654,7 @@ GameObject:
   - component: {fileID: 447549910}
   - component: {fileID: 447549909}
   m_Layer: 0
-  m_Name: Particle System
+  m_Name: parryEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -733,14 +743,14 @@ ParticleSystem:
   serializedVersion: 8
   lengthInSec: 0.2
   simulationSpeed: 1
-  stopAction: 0
+  stopAction: 2
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -5840,9 +5850,17 @@ PrefabInstance:
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6316252139009689216, guid: 018a1a6e8c0797f4192eeab3fa61dfe4, type: 3}
+      propertyPath: preParry
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6316252139009689216, guid: 018a1a6e8c0797f4192eeab3fa61dfe4, type: 3}
       propertyPath: fallSpeed
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6316252139009689216, guid: 018a1a6e8c0797f4192eeab3fa61dfe4, type: 3}
+      propertyPath: parryEffect
+      value: 
+      objectReference: {fileID: 447549910}
     - target: {fileID: 7323729258134347923, guid: 018a1a6e8c0797f4192eeab3fa61dfe4, type: 3}
       propertyPath: m_Name
       value: Player
@@ -6317,11 +6335,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackDamage: 20
+  player: {fileID: 59167866}
   attackOffset: {x: 0, y: 0, z: 0}
   attackRange: 1
   attackMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
