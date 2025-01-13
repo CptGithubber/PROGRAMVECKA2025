@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1252157845215771609}
   - component: {fileID: 7513221290460231238}
   - component: {fileID: 3273937938465352405}
+  - component: {fileID: -7507116866319633624}
   m_Layer: 0
   m_Name: Flying Enemy
   m_TagString: Untagged
@@ -180,7 +181,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 110150106846459185}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b1def71a4c69c2342ad53dd86b176d11, type: 3}
   m_Name: 
@@ -214,3 +215,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-7507116866319633624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 110150106846459185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 797eedf016431ff48955ddd31c4b535a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectile: {fileID: 4566846891931156558, guid: 76947c4869fe957429e3212df62b83f6, type: 3}

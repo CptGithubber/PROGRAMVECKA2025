@@ -22,15 +22,15 @@ public class AstarProjectileSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // cooldown ticks down every second
-        cooldown -= Time.deltaTime;
+       
 
         // Flying enemys velocity calculated, used as a condition that if it stops then it can shoot
         Vector2 velocity = rigidbody2D.velocity;
 
         if (velocity.x <= 0.01)
         {
-
+            // cooldown ticks down every second
+            cooldown -= Time.deltaTime;
 
 
 
