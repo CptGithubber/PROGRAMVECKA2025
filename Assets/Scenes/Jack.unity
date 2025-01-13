@@ -743,7 +743,7 @@ ParticleSystem:
   serializedVersion: 8
   lengthInSec: 0.2
   simulationSpeed: 1
-  stopAction: 2
+  stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
@@ -1303,7 +1303,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    gravitySource: 0
+    gravitySource: 1
     maxNumParticles: 1000
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
@@ -1311,7 +1311,7 @@ ParticleSystem:
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 2
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -2068,7 +2068,7 @@ ParticleSystem:
         serializedVersion: 2
         key0: {r: 1, g: 0.9267111, b: 0.4660377, a: 1}
         key1: {r: 1, g: 0.92941177, b: 0.46666667, a: 0}
-        key2: {r: 0, g: 0, b: 0, a: 0}
+        key2: {r: 1, g: 0.92941177, b: 0.46666667, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
         key5: {r: 0, g: 0, b: 0, a: 0}
@@ -2076,13 +2076,13 @@ ParticleSystem:
         key7: {r: 0, g: 0, b: 0, a: 0}
         ctime0: 0
         ctime1: 65535
-        ctime2: 0
+        ctime2: 65535
         ctime3: 0
         ctime4: 0
         ctime5: 0
         ctime6: 0
         ctime7: 0
-        atime0: 0
+        atime0: 42983
         atime1: 65535
         atime2: 0
         atime3: 0
@@ -3115,7 +3115,7 @@ ParticleSystem:
     multiplierCurve:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 4
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -6341,13 +6341,13 @@ MonoBehaviour:
   attackMask:
     serializedVersion: 2
     m_Bits: 128
+  rb: {fileID: 4785886142923063499}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 410104507}
   - {fileID: 318513530}
-  - {fileID: 999447521}
   - {fileID: 9164735974325523451}
   - {fileID: 447549911}
   - {fileID: 332106658}
@@ -6355,3 +6355,4 @@ SceneRoots:
   - {fileID: 305422067}
   - {fileID: 846931418}
   - {fileID: 477336960}
+  - {fileID: 999447521}

@@ -10,10 +10,11 @@ public class EnemyWeapon : MonoBehaviour
     public Vector3 attackOffset;
     public float attackRange = 1f;
     public LayerMask attackMask;
+    public Rigidbody2D rb;
 
     public void Start()
     {
-        player = GetComponent<PlayerMovement>();
+        player = FindObjectOfType<PlayerMovement>();
     }
 
     public void Attack()
@@ -28,7 +29,11 @@ public class EnemyWeapon : MonoBehaviour
               
             if (player.preParry == true)
             {
+                Vector2 difference = (transform.position - player.transform.position).normalized;
+                Vector2 force = difference * 5;
+                rb.AddForce(force, ForceMode2D.Impulse);
                 colInfo.GetComponent<PlayerMovement>().Parry();
+                
             }
            else
             {
