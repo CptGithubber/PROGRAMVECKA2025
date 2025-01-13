@@ -25,6 +25,8 @@ public class PlayerMovement : MonoBehaviour
     public float fallSpeed;
     public bool preParry;
     public ParticleSystem parryEffect;
+    public AudioSource parrySound;
+    public AudioClip parryClip;
 
     Rigidbody2D rb;
     BoxCollider2D box;
@@ -67,7 +69,7 @@ public class PlayerMovement : MonoBehaviour
     {
         anim.SetTrigger("StartParry");
         preParry = true;
-        yield return new WaitForSeconds(0.9F);
+        yield return new WaitForSeconds(0.5F);
         canControl = true;
         preParry = false;
         anim.ResetTrigger("StartParry");
@@ -78,6 +80,13 @@ public class PlayerMovement : MonoBehaviour
     public void Parry()
     {
         preParry = false;
+
+        parrySound = GetComponent<AudioSource>();
+        parrySound.clip = parryClip;
+        parrySound.pitch = (Random.Range(0.6f, .9f));
+        parrySound.Play();
+
+        
         anim.SetTrigger("ParrySuccess");
         var emitParams = new ParticleSystem.EmitParams();
         emitParams.applyShapeToPosition = true;

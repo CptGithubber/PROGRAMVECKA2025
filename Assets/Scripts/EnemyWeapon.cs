@@ -8,7 +8,7 @@ public class EnemyWeapon : MonoBehaviour
 
     public PlayerMovement player;
     public Vector3 attackOffset;
-    public float attackRange = 1f;
+    public float attackRange = 3f;
     public LayerMask attackMask;
     public Rigidbody2D rb;
 
@@ -26,11 +26,12 @@ public class EnemyWeapon : MonoBehaviour
         Collider2D colInfo = Physics2D.OverlapCircle(pos, attackRange, attackMask);
         if (colInfo != null)
         {
+            
               
             if (player.preParry == true)
             {
                 Vector2 difference = (transform.position - player.transform.position).normalized;
-                Vector2 force = difference * 5;
+                Vector2 force = difference * 2;
                 rb.AddForce(force, ForceMode2D.Impulse);
                 colInfo.GetComponent<PlayerMovement>().Parry();
                 
