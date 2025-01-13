@@ -50,7 +50,8 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        StartCoroutine(roller());        
+        StartCoroutine(roller());       
+        
     }
 
     IEnumerator roller()
@@ -60,19 +61,30 @@ public class PlayerMovement : MonoBehaviour
         anim.SetBool("isRolling", false);
         moveVelocity = 0;
         canControl = true;
-        
     }
 
     IEnumerator parry()
     {
+        anim.SetTrigger("StartParry");
+        preParry = true;
         yield return new WaitForSeconds(0.9F);
         canControl = true;
         preParry = false;
+        anim.ResetTrigger("StartParry");
+        anim.ResetTrigger("ParrySuccess");
+
     }
 
     public void Parry()
     {
-        Instantiate(parryEffect, transform.position, transform.rotation);
+        preParry = false;
+        anim.SetTrigger("ParrySuccess");
+        var emitParams = new ParticleSystem.EmitParams();
+        emitParams.applyShapeToPosition = true;
+        emitParams.position = transform.position;
+        parryEffect.Emit(emitParams, 5);
+       
+
 
     }
 
@@ -132,22 +144,13 @@ public class PlayerMovement : MonoBehaviour
             }
 
             //Parry
-            if (Input.GetKey(KeyCode.F))
+            if (Input.GetKey(KeyCode.F) && preParry != true)
             {
                 canControl = false;
                 StartCoroutine(parry());
-                anim.SetTrigger("StartParry");
-                preParry = true;
+                
             }
 
-          
-
-
-            //Attack
-            if (Input.GetKey(KeyCode.F))
-            {
-               
-            }
         }
     }
 
