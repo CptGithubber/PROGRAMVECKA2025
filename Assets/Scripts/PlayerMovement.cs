@@ -23,6 +23,8 @@ public class PlayerMovement : MonoBehaviour
     float yVelocity;
     float speedMultiplier = 1;
     public float fallSpeed;
+    public bool preParry;
+    public ParticleSystem parryEffect;
 
     Rigidbody2D rb;
     BoxCollider2D box;
@@ -61,9 +63,18 @@ public class PlayerMovement : MonoBehaviour
         
     }
 
+    IEnumerator parry()
+    {
+        yield return new WaitForSeconds(0.9F);
+        canControl = true;
+        preParry = false;
+    }
 
+    public void Parry()
+    {
+        Instantiate(parryEffect, transform.position, transform.rotation);
 
-
+    }
 
 
     void Update()
@@ -119,6 +130,18 @@ public class PlayerMovement : MonoBehaviour
                     StartCoroutine(roller());
                     anim.SetBool("isRolling", true);
             }
+
+            //Parry
+            if (Input.GetKey(KeyCode.F))
+            {
+                canControl = false;
+                StartCoroutine(parry());
+                anim.SetTrigger("StartParry");
+                preParry = true;
+            }
+
+          
+
 
             //Attack
             if (Input.GetKey(KeyCode.F))

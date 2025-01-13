@@ -6,9 +6,15 @@ public class EnemyWeapon : MonoBehaviour
 {
     public int attackDamage = 20;
 
+    public PlayerMovement player;
     public Vector3 attackOffset;
     public float attackRange = 1f;
     public LayerMask attackMask;
+
+    public void Start()
+    {
+        player = GetComponent<PlayerMovement>();
+    }
 
     public void Attack()
     {
@@ -19,7 +25,16 @@ public class EnemyWeapon : MonoBehaviour
         Collider2D colInfo = Physics2D.OverlapCircle(pos, attackRange, attackMask);
         if (colInfo != null)
         {
-            colInfo.GetComponent<PlayerHealth>().TakeDamage(attackDamage);
+              
+            if (player.preParry == true)
+            {
+                colInfo.GetComponent<PlayerMovement>().Parry();
+            }
+           else
+            {
+                colInfo.GetComponent<PlayerHealth>().TakeDamage(attackDamage);
+            }
+            
         }
     }
 
