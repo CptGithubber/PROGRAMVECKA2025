@@ -69,7 +69,7 @@ public class PlayerMovement : MonoBehaviour
     {
         anim.SetTrigger("StartParry");
         preParry = true;
-        yield return new WaitForSeconds(0.5F);
+        yield return new WaitForSeconds(0.2F);
         canControl = true;
         preParry = false;
         anim.ResetTrigger("StartParry");
