@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5670724935657490030}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -131,6 +131,10 @@ MonoBehaviour:
   speed: 7
   rollspeed: 18
   fallSpeed: 0
+  preParry: 0
+  parryEffect: {fileID: 0}
+  parrySound: {fileID: 0}
+  parryClip: {fileID: 0}
   coyotyTime: 0.2
   jumpBufferTime: 0.2
 --- !u!95 &2211606759941671605
