@@ -80,7 +80,7 @@ public class PlayerMovement : MonoBehaviour
     IEnumerator attack()
     {
         anim.SetTrigger("Attack1");
-        yield return new WaitForSeconds(0.8F);
+        yield return new WaitForSeconds(0.7F);
         canControl = true;
         anim.ResetTrigger("Attack1");
 
