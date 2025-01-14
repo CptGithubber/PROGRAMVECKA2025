@@ -5,7 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
-
+    private GameObject player;
+    private GameObject respawnpoint;
     public int health = 100;
 
     public void TakeDamage(int damage)
@@ -23,6 +24,7 @@ public class PlayerHealth : MonoBehaviour
     void Die()
     {
         //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        player.transform.position = respawnpoint.transform.position;
     }
 
     IEnumerator DamageAnimation()
