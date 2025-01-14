@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
-    private GameObject player;
-    private GameObject respawnpoint;
+    public GameObject player;
+    public GameObject respawnpoint;
     public int health = 100;
 
     public void TakeDamage(int damage)

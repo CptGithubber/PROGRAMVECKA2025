@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4690181300525886794}
   - component: {fileID: 8683586840957944457}
   - component: {fileID: 1195538526675281041}
+  - component: {fileID: 8804111423513507020}
   m_Layer: 0
   m_Name: Player Real
   m_TagString: Player
@@ -133,6 +134,8 @@ MonoBehaviour:
   fallSpeed: 1.0001
   preParry: 0
   parryEffect: {fileID: 0}
+  parrySound: {fileID: 0}
+  parryClip: {fileID: 0}
   coyotyTime: 0.15
   jumpBufferTime: 0.15
 --- !u!95 &8683586840957944457
@@ -191,7 +194,7 @@ BoxCollider2D:
   m_Offset: {x: -0.19225085, y: -0.067858934}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.3, y: 0.5}
     oldSize: {x: 1, y: 1.25}
     newSize: {x: 1, y: 1.25}
     adaptiveTilingThreshold: 0.5
@@ -201,3 +204,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.51708674, y: 1.1294527}
   m_EdgeRadius: 0
+--- !u!114 &8804111423513507020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3285197997381741666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93609b4dfc0e7144f97c380d49eb174f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 3285197997381741666}
+  respawnpoint: {fileID: 0}
+  health: 100
