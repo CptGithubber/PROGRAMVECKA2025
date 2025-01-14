@@ -335,5 +335,5 @@ MonoBehaviour:
   attackRange: 1.5
   attackMask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 0
   rb: {fileID: 9115987369761855529}
