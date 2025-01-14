@@ -77,6 +77,15 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
+    IEnumerator attack()
+    {
+        anim.SetTrigger("Attack1");
+        yield return new WaitForSeconds(0.7F);
+        canControl = true;
+        anim.ResetTrigger("Attack1");
+
+    }
+
     public void Parry()
     {
         preParry = false;
@@ -158,6 +167,14 @@ public class PlayerMovement : MonoBehaviour
                 canControl = false;
                 StartCoroutine(parry());
                 
+            }
+
+            //Attack
+            if (Input.GetKey(KeyCode.E))
+            {
+                canControl = false;
+                StartCoroutine(attack());
+
             }
 
         }
