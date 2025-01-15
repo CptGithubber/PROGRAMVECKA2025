@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class ProjectileDamage : MonoBehaviour
 {
-
-    PlayerHealth playerHealth;
+    
+    public PlayerHealth playerHealth;
 
     [SerializeField]
     GameObject gameObjectt;
@@ -17,7 +17,7 @@ public class ProjectileDamage : MonoBehaviour
     // Start is called before the first frame update
      void Start()
     {
-       
+        playerHealth = GetComponent<PlayerHealth>();
     }
 
     // Update is called once per frame
@@ -28,15 +28,15 @@ public class ProjectileDamage : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D other)
     {
         Debug.Log("Collision");
 
-        if (collision.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))
         {
+            Debug.Log("ph "+playerHealth);
             playerHealth.TakeDamage(20);
-
-            Debug.Log("20 damage");
+            Debug.Log("Damage");
             Destroy(gameObject);
         }
 
