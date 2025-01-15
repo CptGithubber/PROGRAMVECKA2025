@@ -246,7 +246,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (rb.velocity.y < 0)
         {
-            yVelocity = rb.velocity.y * fallSpeed;
+            yVelocity = rb.velocity.y - fallSpeed;
         }
         else
         {
