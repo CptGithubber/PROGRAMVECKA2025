@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Data.Common;
+using System.Text.RegularExpressions;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -29,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
     public AudioClip parryClip;
 
     Rigidbody2D rb;
-    BoxCollider2D box;
+    BoxCollider2D box;  
 
     bool isGrounded;
     bool rolling;
@@ -46,13 +48,19 @@ public class PlayerMovement : MonoBehaviour
 
     private Animator anim;
 
-    
+    [SerializeField] private LayerMask groundLayerMask = 1 << 9;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        StartCoroutine(roller());       
+        box = GetComponent<BoxCollider2D>();
+        StartCoroutine(roller());    
+        
+        if (groundLayerMask == 0)
+        {
+            Debug.Log("Ground layer is not detected in the inspector");
+        }
         
     }
 
@@ -110,8 +118,12 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
 
+       
+
         if (canControl == true)
         {
+
+
             if (isGrounded == true)
             {
                 coyotyTimeCounter = coyotyTime;
@@ -182,18 +194,43 @@ public class PlayerMovement : MonoBehaviour
 
 
     //Checks if the player is tuching the ground and changs isGrounded based on it
-    public void OnCollisionEnter2D(Collision2D col)
+    void CheckIfGrounded()
     {
-        isGrounded = true;
+        Vector2 boxPosition = new Vector2(box.bounds.center.x, box.bounds.min.y);
+        Vector2 size = new Vector2(box.size.x * 1f, 0.4f);
+        float angle = 0f;
+
+        Collider2D hit = Physics2D.OverlapBox(boxPosition, size, angle, groundLayerMask);
+
+        if (hit != null)
+        {
+            Debug.Log($"Hit Object: {hit.name}, Layer: {LayerMask.LayerToName(hit.gameObject.layer)}");
+        }
+        else
+        {
+            Debug.Log($"No ground detected at Position: {boxPosition}, Size: {size}");
+        }
+
+        isGrounded = hit != null;
+        Debug.Log("Ground: " + isGrounded);
+        Debug.Log("LayerMask: " + groundLayerMask.value);
     }
-    public void OnCollisionExit2D(Collision2D col)
+
+    private void OnDrawGizmos()
     {
-        isGrounded = false;
+        if (box != null)
+        {
+            Vector2 boxPosition = new Vector2(box.bounds.center.x, box.bounds.min.y + 0.1f);
+            Vector2 size = new Vector2(box.size.x * 0.9f, 0.5f);
+
+            Gizmos.color = Color.green;  // Green if grounded
+            Gizmos.DrawWireCube(boxPosition, size);
+        }
     }
 
     void FixedUpdate()
     {
-
+        CheckIfGrounded();
         //Check if grounded and allows jumping
         if (coyotyTimeCounter > 0f && jumpBufferTimeCounter > 0f)
         {
@@ -205,16 +242,16 @@ public class PlayerMovement : MonoBehaviour
         anim.SetFloat("yVelocity", rb.velocity.y);
         anim.SetFloat("xVelocity", Mathf.Abs(rb.velocity.x));
 
-        
+       
 
-            if (rb.velocity.y < 0)
-            {
-                yVelocity = rb.velocity.y * fallSpeed;
-            }
-            else
-            {
-                yVelocity = rb.velocity.y;
-            }
+        if (rb.velocity.y < 0)
+        {
+            yVelocity = rb.velocity.y * fallSpeed;
+        }
+        else
+        {
+            yVelocity = rb.velocity.y;
+        }
 
 
 
