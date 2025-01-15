@@ -10,34 +10,39 @@ public class ProjectileDamage : MonoBehaviour
     [SerializeField]
     GameObject gameObjectt;
 
-   //public float time;
+    
+
+   
 
     // Start is called before the first frame update
-    void Start()
+     void Start()
     {
-        
+       
     }
 
     // Update is called once per frame
     void Update()
     {
-      // time = Time.deltaTime;
+  
+
+
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log("Collision");
 
         if (collision.gameObject.CompareTag("Player"))
         {
             playerHealth.TakeDamage(20);
-          
+
             Debug.Log("20 damage");
             Destroy(gameObject);
         }
-        
-        
-            Destroy(gameObject);
-        
+
+
+        Destroy(gameObject);
     }
+
+   
 }
