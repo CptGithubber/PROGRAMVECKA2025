@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4988283644697327368}
   - component: {fileID: 6297256878931380357}
   - component: {fileID: 7685419862300281231}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Square (20)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,7 +121,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.0666667, y: 1.2}
+    oldSize: {x: 1, y: 1.125}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
