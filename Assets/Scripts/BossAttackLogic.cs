@@ -28,36 +28,42 @@ public class BossAttackLogic : MonoBehaviour
     IEnumerator vineRoutine()
     {
         animator.SetTrigger("Vine");
-        Vector3 newPosition = new Vector3(player.position.x, -1.3f, player.position.z);
-        Instantiate(vineSide, newPosition, Quaternion.identity);
+        Vector3 newPosition = new Vector3(player.position.x, -3.2f, player.position.z);
+        Instantiate(vine, newPosition, Quaternion.identity);
         yield return new WaitForSeconds(1.5F);
-        attacking = false;
         animator.ResetTrigger("Vine");
-        
+        attacking = false;
+
 
     }
 
     IEnumerator vineSideRoutine()
     {
         animator.SetTrigger("SideVine");
-        Vector3 newPosition = new Vector3(player.position.x, -1.3f, player.position.z);
+        Vector3 newPosition = new Vector3(transform.position.x + -4f, -3.2f, player.position.z);
         Instantiate(vineSide, newPosition, Quaternion.identity);
         yield return new WaitForSeconds(1.5F);
-        attacking = false;
         animator.ResetTrigger("SideVine");
-        
+        attacking = false;
 
     }
 
     IEnumerator vineWaveRoutine()
     {
         animator.SetTrigger("Vine");
-        Vector3 newPosition = new Vector3(player.position.x, -1.3f, player.position.z);
-        Instantiate(vineSide, newPosition, Quaternion.identity);
+        float waveCount = 3.5f;
+        for (int i = 0; i < 5; i++)
+        {
+           
+            Vector3 newPosition = new Vector3(transform.position.x - waveCount, -3.2f, player.position.z);
+            Instantiate(vine, newPosition, Quaternion.identity);
+            waveCount = waveCount + 1.5f;
+            yield return new WaitForSeconds(0.5F);
+        }
+        
         yield return new WaitForSeconds(1.5F);
-        attacking = false;
         animator.ResetTrigger("Vine");
-
+        attacking = false;
 
     }
 

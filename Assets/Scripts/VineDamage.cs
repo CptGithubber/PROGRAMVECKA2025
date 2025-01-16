@@ -30,9 +30,7 @@ public class VineDamage : MonoBehaviour
 
             if (player.preParry == true)
             {
-                Vector2 difference = (transform.position - player.transform.position).normalized;
-                Vector2 force = difference * 2;
-                rb.AddForce(force, ForceMode2D.Impulse);
+                
                 colInfo.GetComponent<PlayerMovement>().Parry();
 
             }
