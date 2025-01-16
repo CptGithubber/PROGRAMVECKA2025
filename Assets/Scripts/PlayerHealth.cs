@@ -8,7 +8,7 @@ public class PlayerHealth : MonoBehaviour
     public GameObject player;
     public GameObject respawnpoint;
     public int health = 100;
-
+    public int StartingHealth = 100;
     public void TakeDamage(int damage)
     {
         health -= damage;
@@ -25,6 +25,7 @@ public class PlayerHealth : MonoBehaviour
     {
         //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         player.transform.position = respawnpoint.transform.position;
+        health = StartingHealth;
     }
 
     IEnumerator DamageAnimation()
