@@ -10,7 +10,7 @@ public class ProjectileDamage : MonoBehaviour
     [SerializeField]
     GameObject gameObjectt;
 
-    
+   
 
    
 
@@ -18,6 +18,8 @@ public class ProjectileDamage : MonoBehaviour
      void Start()
     {
         playerHealth = GetComponent<PlayerHealth>();
+
+       
     }
 
     // Update is called once per frame
