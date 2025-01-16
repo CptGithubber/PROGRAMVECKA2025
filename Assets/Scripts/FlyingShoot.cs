@@ -19,10 +19,14 @@ public class FlyingShoot : MonoBehaviour
 
     Rigidbody2D rigidbody2D;
 
+    Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
+
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -42,6 +46,15 @@ public class FlyingShoot : MonoBehaviour
 
             if (cooldown < 0)
             {
+
+
+
+                animator.Play("Spudmother_Atk");
+
+               
+
+               
+
                 // when the cooldown is zero then it will aim and fire a projectile 
 
                 Vector2 aim = player.transform.position - transform.position;
@@ -55,8 +68,8 @@ public class FlyingShoot : MonoBehaviour
                 // sets a 3 second cooldown
                 cooldown = 3f;
 
-               
 
+                
             }
 
         }
