@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37c6c2ed123b06e4e81a477230d596be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 3332330974350475443, guid: bec789d8d67250440af536c10d355391, type: 3}
   isFlipped: 0
 --- !u!61 &4903045106877772624
 BoxCollider2D:
@@ -210,7 +210,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackDamage: 20
-  player: {fileID: 0}
+  player: {fileID: 1911768197819104307, guid: bec789d8d67250440af536c10d355391, type: 3}
   attackOffset: {x: -1.5, y: 0, z: 0}
   attackRange: 1
   attackMask:
