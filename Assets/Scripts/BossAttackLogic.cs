@@ -28,52 +28,66 @@ public class BossAttackLogic : MonoBehaviour
     IEnumerator vineRoutine()
     {
         animator.SetTrigger("Vine");
-        GameObject projectilespawn = Instantiate(vine, player.position + new Vector3(0, -1.5f, 0), Quaternion.identity);
-        yield return new WaitForSeconds(0.900F);
+        Vector3 newPosition = new Vector3(player.position.x, -1.3f, player.position.z);
+        Instantiate(vineSide, newPosition, Quaternion.identity);
+        yield return new WaitForSeconds(1.5F);
         attacking = false;
         animator.ResetTrigger("Vine");
         
+
     }
 
     IEnumerator vineSideRoutine()
     {
         animator.SetTrigger("SideVine");
-        GameObject projectilespawn = Instantiate(vineSide, player.position + new Vector3(0, -1.5f, 0), Quaternion.identity);
-        yield return new WaitForSeconds(0.900F);
+        Vector3 newPosition = new Vector3(player.position.x, -1.3f, player.position.z);
+        Instantiate(vineSide, newPosition, Quaternion.identity);
+        yield return new WaitForSeconds(1.5F);
         attacking = false;
         animator.ResetTrigger("SideVine");
+        
+
+    }
+
+    IEnumerator vineWaveRoutine()
+    {
+        animator.SetTrigger("Vine");
+        Vector3 newPosition = new Vector3(player.position.x, -1.3f, player.position.z);
+        Instantiate(vineSide, newPosition, Quaternion.identity);
+        yield return new WaitForSeconds(1.5F);
+        attacking = false;
+        animator.ResetTrigger("Vine");
+
 
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     public void Update()
     {
-        if (attacking == false)
+        if (!attacking)
         {
-
             int chooseattack = Random.Range(1, 4);
+            Debug.Log("Random chooseattack: " + chooseattack);
 
-            if (chooseattack == 1)
+            attacking = true;  // Start the attacking process
+
+            // Choose an attack based on the random number
+            switch (chooseattack)
             {
-                StartCoroutine(vineRoutine());
-                attacking = true;
+                case 1:
+                    StartCoroutine(vineRoutine());
+                    break;
+
+                case 2:
+                    StartCoroutine(vineWaveRoutine());
+                    break;
+
+                case 3:
+                    StartCoroutine(vineSideRoutine());
+                    break;
             }
-
-            if (chooseattack == 2)
-            {
-                StartCoroutine(vineRoutine());
-                attacking = true;
-            }
-
-
-            if (chooseattack == 3)
-            {
-                StartCoroutine(vineSideRoutine());
-                attacking = true;
-            }
-
-
         }
     }
-  
+
+
 }

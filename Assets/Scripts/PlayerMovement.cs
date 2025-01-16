@@ -135,7 +135,7 @@ public class PlayerMovement : MonoBehaviour
                 anim.SetBool("isJumping", true);
             }
 
-            Debug.Log(coyotyTimeCounter);
+            //Debug.Log(coyotyTimeCounter);
 
             if (Input.GetKeyDown(KeyCode.Space))
             {
@@ -204,16 +204,15 @@ public class PlayerMovement : MonoBehaviour
 
         if (hit != null)
         {
-            Debug.Log($"Hit Object: {hit.name}, Layer: {LayerMask.LayerToName(hit.gameObject.layer)}");
+            //Debug.Log($"Hit Object: {hit.name}, Layer: {LayerMask.LayerToName(hit.gameObject.layer)}");
         }
         else
         {
-            Debug.Log($"No ground detected at Position: {boxPosition}, Size: {size}");
+           //Debug.Log($"No ground detected at Position: {boxPosition}, Size: {size}");
         }
 
         isGrounded = hit != null;
-        Debug.Log("Ground: " + isGrounded);
-        Debug.Log("LayerMask: " + groundLayerMask.value);
+        
     }
 
     private void OnDrawGizmos()

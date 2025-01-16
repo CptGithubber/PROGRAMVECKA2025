@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5943926268398370821}
   - component: {fileID: 7674564813105946425}
   - component: {fileID: 623799772625332270}
+  - component: {fileID: 8485337967189717863}
   m_Layer: 0
   m_Name: Vine_Side
   m_TagString: Untagged
@@ -106,3 +107,23 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8485337967189717863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3605077307657932567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5739158daefea7b419daa751344c74be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackDamage: 20
+  player: {fileID: 303128484903312409, guid: 53f1079dae144b44aa29b678438a65c7, type: 3}
+  attackOffset: {x: -4.5, y: 0.5, z: 0}
+  attackRange: {x: 10, y: 1, z: 0}
+  attackMask:
+    serializedVersion: 2
+    m_Bits: 128
+  rb: {fileID: 0}
