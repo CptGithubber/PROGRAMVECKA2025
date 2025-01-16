@@ -21,10 +21,9 @@ public class Popup : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.T) && condition == 0)
         {
-
+            // Plays the animation once,if the key is pressed and hasn't been pressed before. 
             animator.Play("Popup");
             animator.SetBool("Bool", true);
-           // animator.SetTrigger("Grave");
             condition += 1;
         }
     }

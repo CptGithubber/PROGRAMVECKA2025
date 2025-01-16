@@ -32,6 +32,7 @@ public class ProjectileDamage : MonoBehaviour
     {
         Debug.Log("Collision");
 
+        // If projectile collides with the player then it will do 20 damage and then disappear. 
         if (other.gameObject.CompareTag("Player"))
         {
             Debug.Log("ph "+playerHealth);
@@ -40,7 +41,7 @@ public class ProjectileDamage : MonoBehaviour
             Destroy(gameObject);
         }
 
-
+        // If projectile collides with any solid object it gets destroyed.
         Destroy(gameObject);
     }
 
