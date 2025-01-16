@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7674564813105946425}
   - component: {fileID: 623799772625332270}
   - component: {fileID: 8485337967189717863}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Vine_Side
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -122,7 +122,7 @@ MonoBehaviour:
   attackDamage: 20
   player: {fileID: 303128484903312409, guid: 53f1079dae144b44aa29b678438a65c7, type: 3}
   attackOffset: {x: -4.5, y: 0.5, z: 0}
-  attackRange: {x: 10, y: 1, z: 0}
+  attackRange: {x: 10, y: 0.5, z: 0}
   attackMask:
     serializedVersion: 2
     m_Bits: 128
