@@ -135,7 +135,7 @@ MonoBehaviour:
   rollspeed: 18
   fallSpeed: 1.0001
   preParry: 0
-  parryEffect: {fileID: 3718293155828292613, guid: cc994c74e0a57d842b1d2626c8ef048f, type: 3}
+  parryEffect: {fileID: 1806531413501350788, guid: 9c60d9a9fc08dc24b8f2a01b60cb6dce, type: 3}
   parrySound: {fileID: 8751699739552241324}
   attackSound: {fileID: 0}
   parryClip: {fileID: 8300000, guid: aa915306a1d1a2a4ba89c5fc475d974c, type: 3}
