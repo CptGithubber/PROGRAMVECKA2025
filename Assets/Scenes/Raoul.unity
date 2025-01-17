@@ -650,6 +650,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player Real 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6755170698661343914, guid: 53f1079dae144b44aa29b678438a65c7, type: 3}
+      propertyPath: attackMask.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
     - target: {fileID: 7789344027407724696, guid: 53f1079dae144b44aa29b678438a65c7, type: 3}
       propertyPath: respawnpoint
       value: 
@@ -736,17 +740,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Flying Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 110150106846459185, guid: 600087e58c8dfdf4c84121de409b7f3b, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 187883944543238021, guid: 600087e58c8dfdf4c84121de409b7f3b, type: 3}
       propertyPath: target
       value: 
       objectReference: {fileID: 1065095376}
-    - target: {fileID: 7244219469740923872, guid: 600087e58c8dfdf4c84121de409b7f3b, type: 3}
-      propertyPath: m_Size.y
-      value: 1.3012115
-      objectReference: {fileID: 0}
-    - target: {fileID: 7244219469740923872, guid: 600087e58c8dfdf4c84121de409b7f3b, type: 3}
-      propertyPath: m_Offset.y
-      value: 1.2868943
+    - target: {fileID: 3273937938465352405, guid: 600087e58c8dfdf4c84121de409b7f3b, type: 3}
+      propertyPath: m_Constraints
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7513221290460231238, guid: 600087e58c8dfdf4c84121de409b7f3b, type: 3}
       propertyPath: player
