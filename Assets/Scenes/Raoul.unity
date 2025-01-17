@@ -169,6 +169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 229e391ebc2e3fe4098da10155b0fdfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  respawnpoint: {fileID: 0}
 --- !u!61 &158983954
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -226,8 +227,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78c1a498e91ff7443a4eae81270427d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1065095377}
-  respawnpoint: {fileID: 158983951}
 --- !u!1 &230837323
 GameObject:
   m_ObjectHideFlags: 0
@@ -239,7 +238,7 @@ GameObject:
   - component: {fileID: 230837326}
   - component: {fileID: 230837325}
   - component: {fileID: 230837324}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -639,32 +638,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1065095376}
---- !u!1 &853841841 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 110150106846459185, guid: 600087e58c8dfdf4c84121de409b7f3b, type: 3}
-  m_PrefabInstance: {fileID: 1178642859}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &853841850
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 853841841}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 2b8485fc924fb9b459604a79f7c64ed8, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1065095375
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -751,8 +724,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78c1a498e91ff7443a4eae81270427d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1065095377}
-  respawnpoint: {fileID: 158983951}
 --- !u!1001 &1178642859
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -761,14 +732,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -7507116866319633624, guid: 600087e58c8dfdf4c84121de409b7f3b, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -7507116866319633624, guid: 600087e58c8dfdf4c84121de409b7f3b, type: 3}
-      propertyPath: projectile
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 110150106846459185, guid: 600087e58c8dfdf4c84121de409b7f3b, type: 3}
       propertyPath: m_Name
       value: Flying Enemy
@@ -777,14 +740,18 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1065095376}
+    - target: {fileID: 7244219469740923872, guid: 600087e58c8dfdf4c84121de409b7f3b, type: 3}
+      propertyPath: m_Size.y
+      value: 1.3012115
+      objectReference: {fileID: 0}
+    - target: {fileID: 7244219469740923872, guid: 600087e58c8dfdf4c84121de409b7f3b, type: 3}
+      propertyPath: m_Offset.y
+      value: 1.2868943
+      objectReference: {fileID: 0}
     - target: {fileID: 7513221290460231238, guid: 600087e58c8dfdf4c84121de409b7f3b, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1065095377}
-    - target: {fileID: 7513221290460231238, guid: 600087e58c8dfdf4c84121de409b7f3b, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8913301769657817517, guid: 600087e58c8dfdf4c84121de409b7f3b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.677882
@@ -828,10 +795,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 110150106846459185, guid: 600087e58c8dfdf4c84121de409b7f3b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 853841850}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 600087e58c8dfdf4c84121de409b7f3b, type: 3}
 --- !u!1 &1728998951
 GameObject:
@@ -844,7 +808,7 @@ GameObject:
   - component: {fileID: 1728998954}
   - component: {fileID: 1728998953}
   - component: {fileID: 1728998952}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -957,7 +921,7 @@ Transform:
   m_GameObject: {fileID: 1728998951}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.8, y: -2.07, z: 0}
+  m_LocalPosition: {x: -3.8, y: -3.37, z: 0}
   m_LocalScale: {x: 4.5625, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
