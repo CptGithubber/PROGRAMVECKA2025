@@ -81,7 +81,7 @@ public class PlayerHealth : MonoBehaviour
 
 
 
-        else if (health > 1)
+        else if (health > 10)
 
             healthbar.sprite = healthsprites[4];
 

@@ -1519,10 +1519,6 @@ PrefabInstance:
       value: Player Real 2
       objectReference: {fileID: 0}
     - target: {fileID: 7789344027407724696, guid: 53f1079dae144b44aa29b678438a65c7, type: 3}
-      propertyPath: health
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 7789344027407724696, guid: 53f1079dae144b44aa29b678438a65c7, type: 3}
       propertyPath: healthbar
       value: 
       objectReference: {fileID: 1261548203}
