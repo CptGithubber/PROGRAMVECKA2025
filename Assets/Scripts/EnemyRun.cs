@@ -26,9 +26,7 @@ public class EnemyRun : StateMachineBehaviour
     {
 
         Debug.Log("Distance to player: " + Vector2.Distance(player.position, rb.position));
-        if (Vector2.Distance(player.position, rb.position) <= aggroRange)
-        {
-            animator.SetBool("WithinRange", true);
+        
             enemy.LookAtPlayer();
 
             Vector2 target = new Vector2(player.position.x, rb.position.y);
@@ -48,10 +46,10 @@ public class EnemyRun : StateMachineBehaviour
                 {
                     animator.SetTrigger("TripleAttack");
                 }
-            }
+           }
             
 
-        }
+        
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
