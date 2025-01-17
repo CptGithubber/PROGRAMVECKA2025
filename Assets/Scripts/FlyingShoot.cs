@@ -49,7 +49,7 @@ public class FlyingShoot : MonoBehaviour
 
 
 
-                animator.Play("Spudmother_Atk");
+               
 
                
 
@@ -61,6 +61,8 @@ public class FlyingShoot : MonoBehaviour
 
                 GameObject projectilespawn = Instantiate(projectile, transform.position, Quaternion.identity);
 
+                
+
                 Rigidbody2D projectilerb = projectilespawn.GetComponent<Rigidbody2D>();
 
                 projectilerb.velocity = aim.normalized *2f;
@@ -71,6 +73,19 @@ public class FlyingShoot : MonoBehaviour
 
                 
             }
+
+            while(cooldown < 3)
+            {
+                animator.SetBool("Bool", true);
+            }
+
+            if( cooldown == 3)
+            {
+                animator.SetBool("Bool", false);
+                animator.Play("Spudmother_Atk");
+            }
+
+           
 
         }
 

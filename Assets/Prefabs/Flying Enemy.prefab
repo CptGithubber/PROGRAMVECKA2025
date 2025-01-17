@@ -16,6 +16,8 @@ GameObject:
   - component: {fileID: 7513221290460231238}
   - component: {fileID: 3273937938465352405}
   - component: {fileID: -7507116866319633624}
+  - component: {fileID: 1988087928524077663}
+  - component: {fileID: 7792207264253053704}
   m_Layer: 0
   m_Name: Flying Enemy
   m_TagString: Untagged
@@ -121,7 +123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  target: {fileID: 3294068893454938766, guid: 018a1a6e8c0797f4192eeab3fa61dfe4, type: 3}
+  target: {fileID: 0}
 --- !u!212 &1252157845215771609
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -181,12 +183,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 110150106846459185}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b1def71a4c69c2342ad53dd86b176d11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 7323729258134347923, guid: 018a1a6e8c0797f4192eeab3fa61dfe4, type: 3}
+  player: {fileID: 0}
   projectile: {fileID: 5317957236174048344, guid: d5c10384d67908e48988470a53d02624, type: 3}
 --- !u!50 &3273937938465352405
 Rigidbody2D:
@@ -222,9 +224,43 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 110150106846459185}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 797eedf016431ff48955ddd31c4b535a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 4566846891931156558, guid: 76947c4869fe957429e3212df62b83f6, type: 3}
+  projectile: {fileID: 0}
+--- !u!95 &1988087928524077663
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 110150106846459185}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2b8485fc924fb9b459604a79f7c64ed8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7792207264253053704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 110150106846459185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80b6358832e5e7b4680f03be3c672e02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 40
