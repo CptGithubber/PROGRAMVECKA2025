@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    GameObject player;
 
-    public Transform player;
-
+    private void Start()
+    {
+         player = GameObject.FindGameObjectWithTag("Player");
+    }
     public bool isFlipped = false;
 
     public void LookAtPlayer()
@@ -14,13 +17,13 @@ public class Enemy : MonoBehaviour
         Vector3 flipped = transform.localScale;
         flipped.z *= -1f;
 
-        if (transform.position.x > player.position.x && isFlipped)
+        if (transform.position.x > player.transform.position.x && isFlipped)
         {
             transform.localScale = flipped;
             transform.Rotate(0f, 180f, 0f);
             isFlipped = false;
         }
-        else if (transform.position.x < player.position.x && !isFlipped)
+        else if (transform.position.x < player.transform.position.x && !isFlipped)
         {
             transform.localScale = flipped;
             transform.Rotate(0f, 180f, 0f);

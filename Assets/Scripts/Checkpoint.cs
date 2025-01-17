@@ -5,41 +5,31 @@ using UnityEngine;
 public class Checkpoint : MonoBehaviour
 {
     Animator anim;
-    public GameObject player;
+    GameObject player;
     public GameObject respawnpoint;
 
     private void Awake()
     {
         anim = GetComponent<Animator>();
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log($"Collided with: {collision.gameObject.name}, Tag: {collision.gameObject.tag}");
 
         if (collision.gameObject.CompareTag("Player"))
         {
             // Set the respawnpoint to this checkpoint's position
             respawnpoint.transform.position = this.gameObject.transform.position;
 
-            // Log the respawn point set message
-            Debug.Log($"Respawn point set to: {respawnpoint.name}");
-
-            // Set the animator to indicate that this checkpoint is in use
+            // Telst the animator that the isInUse bool is true
             anim.SetBool("isInUse", true);
 
-            // Optionally, you can assign the player's respawn point
             player.GetComponent<PlayerHealth>().respawnpoint = this.gameObject;
-        }
-
-        // If the respawnpoint is not null, disable the previous checkpoint animation (if it exists)
-        if (respawnpoint != null)
-        {
-            var previousCheckpointAnimator = respawnpoint.GetComponent<Animator>();
-            if (previousCheckpointAnimator != null)
+            if (player.GetComponent<PlayerHealth>().respawnpoint != null)
             {
-                previousCheckpointAnimator.SetBool("isInUse", false);
+                player.GetComponent<PlayerHealth>().respawnpoint = this.gameObject;
             }
         }
     }
