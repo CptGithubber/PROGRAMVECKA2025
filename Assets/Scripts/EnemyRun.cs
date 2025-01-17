@@ -25,6 +25,7 @@ public class EnemyRun : StateMachineBehaviour
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
 
+        Debug.Log("Distance to player: " + Vector2.Distance(player.position, rb.position));
         if (Vector2.Distance(player.position, rb.position) <= aggroRange)
         {
             animator.SetBool("WithinRange", true);
