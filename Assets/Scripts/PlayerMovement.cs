@@ -25,7 +25,6 @@ public class PlayerMovement : MonoBehaviour
     float yVelocity;
     float speedMultiplier = 1;
     public float fallSpeed;
-    public float maxFallSpeed;
     public bool preParry;
     bool isDoingSomthing;
     public ParticleSystem parryEffect;
@@ -256,7 +255,7 @@ public class PlayerMovement : MonoBehaviour
 
        
 
-        if (rb.velocity.y < 0 && rb.velocity.y > maxFallSpeed)
+        if (rb.velocity.y < 0)
         {
             yVelocity = rb.velocity.y - fallSpeed;
         }
