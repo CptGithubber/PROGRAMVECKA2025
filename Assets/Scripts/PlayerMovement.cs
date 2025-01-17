@@ -28,7 +28,9 @@ public class PlayerMovement : MonoBehaviour
     public bool preParry;
     public ParticleSystem parryEffect;
     public AudioSource parrySound;
+    public AudioSource attackSound;
     public AudioClip parryClip;
+    public AudioClip attackClip;
 
     Rigidbody2D rb;
     BoxCollider2D box;  
@@ -88,6 +90,10 @@ public class PlayerMovement : MonoBehaviour
     IEnumerator attack()
     {
         anim.SetTrigger("Attack1");
+        attackSound = GetComponent<AudioSource>();
+        attackSound.clip = attackClip;
+        attackSound.pitch = (Random.Range(0.6f, .9f));
+        attackSound.Play();
         yield return new WaitForSeconds(0.7F);
         canControl = true;
         anim.ResetTrigger("Attack1");

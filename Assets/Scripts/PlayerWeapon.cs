@@ -7,6 +7,7 @@ public class PlayerWeapon : MonoBehaviour
     public int attackDamage = 20;
 
     public EnemyHealth enemy;
+    public Boss boss;
     public Vector3 attackOffset;
     public float attackRange = 3f;
     public LayerMask attackMask;
@@ -28,7 +29,7 @@ public class PlayerWeapon : MonoBehaviour
         {
 
             colInfo.GetComponent<EnemyHealth>().TakeDamage(attackDamage);
-
+            colInfo.GetComponent<Boss>().TakeDamage(attackDamage);
 
         }
     }
