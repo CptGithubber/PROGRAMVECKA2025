@@ -135,11 +135,9 @@ MonoBehaviour:
   rollspeed: 18
   fallSpeed: 1.0001
   preParry: 0
-  parryEffect: {fileID: 3718293155828292613, guid: cc994c74e0a57d842b1d2626c8ef048f, type: 3}
+  parryEffect: {fileID: 0}
   parrySound: {fileID: 8751699739552241324}
-  attackSound: {fileID: 0}
   parryClip: {fileID: 8300000, guid: aa915306a1d1a2a4ba89c5fc475d974c, type: 3}
-  attackClip: {fileID: 8300000, guid: 806a3c41fd2379f489716af4858d85f8, type: 3}
   coyotyTime: 0.15
   jumpBufferTime: 0.15
   groundLayerMask:
@@ -227,14 +225,6 @@ MonoBehaviour:
   respawnpoint: {fileID: 0}
   health: 100
   StartingHealth: 100
-  healthsprites:
-  - {fileID: 7409032127523532541, guid: 879b00e4fc8150c4db1eb0ad5995d420, type: 3}
-  - {fileID: -3309711256583898113, guid: e50920bf1c19798498bdd3e81e2f4b5a, type: 3}
-  - {fileID: 1188669578862662893, guid: 9416fca1bde25194b86ebb7d0455f4f5, type: 3}
-  - {fileID: 6102066196870016123, guid: da1fc440225906e4b880c715a045afa3, type: 3}
-  - {fileID: -601004742767893455, guid: 5da86f7bc26b3f14cbafceb04cf376e6, type: 3}
-  - {fileID: -6600737848048613848, guid: 5558ec579502c6d4ba6b723bc7820a5f, type: 3}
-  healthbar: {fileID: 0}
 --- !u!82 &8751699739552241324
 AudioSource:
   m_ObjectHideFlags: 0
@@ -345,7 +335,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackDamage: 20
   enemy: {fileID: 3054733226860351872, guid: 9c023591fcde0e34ba67d7f73e5aa7f9, type: 3}
-  boss: {fileID: 0}
   attackOffset: {x: 2, y: 0, z: 0}
   attackRange: 1.5
   attackMask:
