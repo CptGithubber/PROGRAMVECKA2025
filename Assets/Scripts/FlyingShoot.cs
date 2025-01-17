@@ -74,7 +74,7 @@ public class FlyingShoot : MonoBehaviour
                 
             }
 
-            while(cooldown < 3)
+            if(cooldown < 3)
             {
                 animator.SetBool("Bool", true);
             }
@@ -82,7 +82,7 @@ public class FlyingShoot : MonoBehaviour
             if( cooldown == 3)
             {
                 animator.SetBool("Bool", false);
-                animator.Play("Spudmother_Atk");
+               // animator.Play("Spudmother_Atk");
             }
 
            
