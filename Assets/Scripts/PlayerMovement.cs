@@ -26,9 +26,12 @@ public class PlayerMovement : MonoBehaviour
     float speedMultiplier = 1;
     public float fallSpeed;
     public bool preParry;
+    bool isDoingSomthing;
     public ParticleSystem parryEffect;
     public AudioSource parrySound;
+    public AudioSource attackSound;
     public AudioClip parryClip;
+    public AudioClip attackClip;
 
     Rigidbody2D rb;
     BoxCollider2D box;  
@@ -79,6 +82,7 @@ public class PlayerMovement : MonoBehaviour
         preParry = true;
         yield return new WaitForSeconds(0.2F);
         canControl = true;
+        isDoingSomthing = false;
         preParry = false;
         anim.ResetTrigger("StartParry");
         anim.ResetTrigger("ParrySuccess");
@@ -88,8 +92,14 @@ public class PlayerMovement : MonoBehaviour
     IEnumerator attack()
     {
         anim.SetTrigger("Attack1");
+
+        attackSound = GetComponent<AudioSource>();
+        attackSound.clip = attackClip;
+        attackSound.pitch = (Random.Range(0.6f, .9f));
+        attackSound.Play();
         yield return new WaitForSeconds(0.7F);
         canControl = true;
+        isDoingSomthing = false;
         anim.ResetTrigger("Attack1");
 
     }
@@ -176,6 +186,7 @@ public class PlayerMovement : MonoBehaviour
             //Parry
             if (Input.GetKey(KeyCode.F) && preParry != true)
             {
+                isDoingSomthing = true;
                 canControl = false;
                 StartCoroutine(parry());
                 
@@ -184,6 +195,7 @@ public class PlayerMovement : MonoBehaviour
             //Attack
             if (Input.GetKey(KeyCode.E))
             {
+                isDoingSomthing = true;
                 canControl = false;
                 StartCoroutine(attack());
 
@@ -257,13 +269,13 @@ public class PlayerMovement : MonoBehaviour
         moveVelocity = 0;
 
         //Left/Right Movement
-        if (isRunning_A == true)
+        if (isRunning_A && !isDoingSomthing)
         {
             speedMultiplier = -1;
             moveVelocity = speed * speedMultiplier;
             anim.SetBool("isRunning", true);
         }
-        if (isRunning_D == true)
+        if (isRunning_D && !isDoingSomthing)
         {
             speedMultiplier = 1;
             moveVelocity = speed * speedMultiplier;

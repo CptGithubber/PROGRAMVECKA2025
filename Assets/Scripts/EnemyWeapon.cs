@@ -11,6 +11,7 @@ public class EnemyWeapon : MonoBehaviour
     public float attackRange = 3f;
     public LayerMask attackMask;
     public Rigidbody2D rb;
+    public AudioSource attackSound;
 
     public void Start()
     {
@@ -22,6 +23,11 @@ public class EnemyWeapon : MonoBehaviour
         Vector3 pos = transform.position;
         pos += transform.right * attackOffset.x;
         pos += transform.up * attackOffset.y;
+
+        attackSound = GetComponent<AudioSource>();
+        
+        attackSound.pitch = (Random.Range(0.6f, .9f));
+        attackSound.Play();
 
         Collider2D colInfo = Physics2D.OverlapCircle(pos, attackRange, attackMask);
         if (colInfo != null)

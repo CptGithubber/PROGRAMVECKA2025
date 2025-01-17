@@ -6,12 +6,14 @@ using UnityEngine.SceneManagement;
 public class EnemyHealth : MonoBehaviour
 {
 
-    public int health = 100;
+
+
+    public int health;
 
     public void TakeDamage(int damage)
     {
         health -= damage;
-
+       
         StartCoroutine(DamageAnimation());
 
         if (health <= 0)
@@ -34,7 +36,7 @@ public class EnemyHealth : MonoBehaviour
             foreach (SpriteRenderer sr in srs)
             {
                 Color c = sr.color;
-                c.a = 0;
+                c.r = 255;
                 sr.color = c;
             }
 
@@ -43,12 +45,13 @@ public class EnemyHealth : MonoBehaviour
             foreach (SpriteRenderer sr in srs)
             {
                 Color c = sr.color;
-                c.a = 1;
+                c.r = 0;
                 sr.color = c;
             }
 
             yield return new WaitForSeconds(.1f);
         }
     }
+        }
 
-}
+    

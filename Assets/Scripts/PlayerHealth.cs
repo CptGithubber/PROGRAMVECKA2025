@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -9,6 +10,9 @@ public class PlayerHealth : MonoBehaviour
     public GameObject respawnpoint;
     public int health = 100;
     public int StartingHealth = 100;
+    public Sprite[] healthsprites;
+    public SpriteRenderer healthbar;
+    
     public void TakeDamage(int damage)
     {
         health -= damage;
@@ -52,6 +56,37 @@ public class PlayerHealth : MonoBehaviour
 
             yield return new WaitForSeconds(.1f);
         }
+    }
+    void Update()
+    {
+
+        if (health > 80)
+
+            healthbar.sprite = healthsprites[0];
+
+
+        else if (health > 60)
+
+            healthbar.sprite = healthsprites[1];
+
+
+        else if (health > 40)
+
+            healthbar.sprite = healthsprites[2];
+
+
+        else if (health > 20)
+
+            healthbar.sprite = healthsprites[3];
+
+
+
+        else if (health > 10)
+
+            healthbar.sprite = healthsprites[4];
+
+        else
+            healthbar.sprite = healthsprites[5];
     }
 
 }
