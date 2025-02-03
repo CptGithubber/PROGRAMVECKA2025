@@ -25,7 +25,7 @@ public class EnemyRun : StateMachineBehaviour
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
 
-        Debug.Log("Distance to player: " + Vector2.Distance(player.position, rb.position));
+        
         
             enemy.LookAtPlayer();
 
@@ -35,6 +35,10 @@ public class EnemyRun : StateMachineBehaviour
 
             if (Vector2.Distance(player.position, rb.position) <= attackRange)
             {
+            if (animator.GetBool("Parried") == false)
+            {
+
+
                 int chooseattack = Random.Range(2, 0);
 
                 if (chooseattack == 1)
@@ -46,6 +50,7 @@ public class EnemyRun : StateMachineBehaviour
                 {
                     animator.SetTrigger("TripleAttack");
                 }
+            }
            }
             
 

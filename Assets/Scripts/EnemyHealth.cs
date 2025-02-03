@@ -6,14 +6,21 @@ using UnityEngine.SceneManagement;
 public class EnemyHealth : MonoBehaviour
 {
 
-
+    private Animator anim;
 
     public int health;
 
     public void TakeDamage(int damage)
     {
+        anim = GetComponent<Animator>();
+
         health -= damage;
-       
+
+        if (anim.GetBool("Parried") == true)
+        {
+            anim.SetBool("Parried", false);
+        }
+
         StartCoroutine(DamageAnimation());
 
         if (health <= 0)

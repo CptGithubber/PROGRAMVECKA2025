@@ -13,9 +13,12 @@ public class EnemyWeapon : MonoBehaviour
     public Rigidbody2D rb;
     public AudioSource attackSound;
 
+    private Animator anim;
+
     public void Start()
     {
         player = FindObjectOfType<PlayerMovement>();
+        anim = GetComponent<Animator>();
     }
 
     public void Attack()
@@ -39,6 +42,7 @@ public class EnemyWeapon : MonoBehaviour
                 Vector2 difference = (transform.position - player.transform.position).normalized;
                 Vector2 force = difference * 2;
                 rb.AddForce(force, ForceMode2D.Impulse);
+                anim.SetBool("Parried", true);
                 colInfo.GetComponent<PlayerMovement>().Parry();
                 
             }
