@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 7697955271728138153}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.7, y: 6.76, z: -0.1984531}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -99,7 +99,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 229e391ebc2e3fe4098da10155b0fdfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   respawnpoint: {fileID: 7697955271728138153}
 --- !u!95 &6667226639425911082
 Animator:

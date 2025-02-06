@@ -176,12 +176,12 @@ public class PlayerMovement : MonoBehaviour
 
 
             //Rolling
-            if (Input.GetKey(KeyCode.LeftShift))
+            /*if (Input.GetKey(KeyCode.LeftShift))
             {
                     canControl = false;
                     StartCoroutine(roller());
                     anim.SetBool("isRolling", true);
-            }
+            }*/
 
             //Parry
             if (Input.GetKey(KeyCode.F) && preParry != true)
