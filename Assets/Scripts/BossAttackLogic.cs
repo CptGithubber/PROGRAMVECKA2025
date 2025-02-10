@@ -76,7 +76,7 @@ public class BossAttackLogic : MonoBehaviour
             Vector3 newPosition = new Vector3(transform.position.x - waveCount, -3.33f, player.position.z);
             Instantiate(vine, newPosition, Quaternion.identity);
             waveCount = waveCount + 1.1f;
-            yield return new WaitForSeconds(0.5F);
+            yield return new WaitForSeconds(0.2F);
         }
         
         yield return new WaitForSeconds(1.5F);
